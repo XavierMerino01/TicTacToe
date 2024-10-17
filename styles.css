@@ -17,11 +17,11 @@ h1{
     border: 1px solid black;
     width: 800px;
     height: 800px;
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
 }
+
 
 .space{
     width: 100%;
@@ -32,4 +32,10 @@ h1{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.player-setup{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }

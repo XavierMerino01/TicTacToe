@@ -2,7 +2,18 @@ const gameboard = [];
 
 let gameOver = false;
 
+const htmlBoard = document.querySelector(".main")
 const gameInfo = document.querySelector(".info");
+const setupForm = document.querySelector(".player-setup");
+
+setupForm.addEventListener("submit", function(event){
+    event.preventDefault();
+
+    player1.name = document.getElementById('player1-name').value;
+    player2.name = document.getElementById('player2-name').value;
+    StartGame();
+    setupForm.style.display = "none";
+})
 
 function BoardSpace(index, value, element) {
 
@@ -25,7 +36,8 @@ function BoardSpace(index, value, element) {
 
 function FillBoard(){
     
-    const htmlBoard = document.querySelector(".main")
+    htmlBoard.style.display = "none";
+    gameInfo.style.display = "none";
 
     for(let i = 0; i < 9; i++){
         const newSpace = document.createElement('div');
@@ -68,11 +80,11 @@ function FillBoard(){
     
 }
 
-const player1 = new Player("Tete", "X");
-const player2 = new Player("Toto", "O");
-let currentPlayer = player1;
 
 FillBoard();
+let currentPlayer;
+const player1 = new Player("Tete", "X");
+const player2 = new Player("Toto", "O");
 
 function SwapPlayer(){
     if(currentPlayer == player1){
@@ -123,5 +135,16 @@ function CheckDrawCondition() {
         }
     }
     return true;
+
+}
+
+function StartGame()
+{
+    currentPlayer = player1;
+    htmlBoard.style.display = "grid";
+
+    gameInfo.textContent = "It's "+currentPlayer.name+"'s turn!!!";
+
+    gameInfo.style.display = "block";
 }
 
