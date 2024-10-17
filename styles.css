@@ -1,0 +1,35 @@
+body{
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h1{
+    margin-top: 100px;
+}
+
+
+.main{
+    background-color: white;
+    border: 1px solid black;
+    width: 800px;
+    height: 800px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.space{
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+    font-size: 60px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
